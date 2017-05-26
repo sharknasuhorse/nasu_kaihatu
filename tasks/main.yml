@@ -9,6 +9,6 @@
     - apache2
 
 #    - mariadb-server
-#   - go
-# - php
+#    - go
+#    - php
 #    - rails
