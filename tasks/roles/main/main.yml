@@ -1,0 +1,25 @@
+---
+
+- name : yum update
+  yum : name=* state = latest
+
+- name : install epel
+  yum : 
+    name = "epel-release"
+    state = present
+  
+- name: Install libselinux-python
+  yum: name=libselinux-python state=present
+
+- name: Permissive selinux
+  selinux: state=disable
+
+- name: Reboot
+  shell: "sleep 2 && reboot"
+  async: 1
+  poll: 0
+
+
+- name: waiting system
+  local_action: wait_for host={{ansible_ssh_host}} port={{ansible_ssh_port}} delay=30
+  become: false
