@@ -17,4 +17,10 @@
     echo export PATH=$PATH:$GOROOT/bin:$GOPATH/bin >> ~/.bash_profile
     source ~/.bash_profile
 
-    
+
+- name: check go
+  
+
+
+
+
