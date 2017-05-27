@@ -6,6 +6,6 @@
 - name: add security.conf
   copy: src=templates/security.conf dest=/etc/httpd/conf.d
 
--name: start httpd
+- name: start httpd
  service: name=httpd enabled=yes state=started
 
