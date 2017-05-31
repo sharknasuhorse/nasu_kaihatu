@@ -1,15 +1,13 @@
 ---
 
 - name : yum update
-  yum : name=* state = latest
+  yum : name="*" state=latest
 
 - name : install epel
-  yum : 
-    name = "epel-release"
-    state = present
-  
+  yum : name = "epel-release" state = present
+
 - name: Install libselinux-python
-  yum: name=libselinux-python state=present
+  yum: "name=libselinux-python" state=present
 
 - name: Permissive selinux
   selinux: state=disable

@@ -1,8 +1,9 @@
 ---
--name: install go
-  yum : name=golang state=latest
 
--name: make GOPATH directory
+- name: install go
+  yum : name="golang" state=latest
+
+- name: make GOPATH directory
   file: /usr/local/gocode/{{ item }}
   state: directory
   with_items:
@@ -10,7 +11,7 @@
       - bin
       - pkg
 
--name: set PATH
+- name: set PATH
   shell: |
     echo export GOROOT=/usr/lib/golang >> ~/.bash_profile
     echo export GOPATH=/usr/local/gocode >> ~/.bash_profile
