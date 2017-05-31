@@ -6,6 +6,14 @@
 - name : install epel
   yum : name="epel-release" state=present
 
+
+
+
+- name: add vimrc
+  file: ~/.vim/
+  template: src="templates/vimrc" dest="~/.vim/" owner=vagrant group=vagrant
+
+
 - name: Install libselinux-python
   yum: name="libselinux-python" state=present
 
