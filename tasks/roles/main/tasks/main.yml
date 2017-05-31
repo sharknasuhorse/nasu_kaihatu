@@ -6,8 +6,13 @@
 - name : install epel
   yum : name="epel-release" state=present
 
+- name: install wget
+  yum: name="wget" state=present
 
 
+- name: bash-completion
+  yum: name="bash-completion" state=present
+- command: wget https://github.com/terralinux/systemd/raw/master/src/systemctl-bash-completion.sh -O /etc/bash_completion.d/systemctl-bash-completion.sh
 
 - name: add vimrc
   file: path=/home/vagrant/.vim state=directory
