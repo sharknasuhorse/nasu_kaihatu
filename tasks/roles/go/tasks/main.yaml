@@ -1,6 +1,6 @@
 ---
 -name: install go
-  yum: name=golang state=latest
+  yum : name=golang state=latest
 
 -name: make GOPATH directory
   file: /usr/local/gocode/{{ item }}
@@ -19,8 +19,5 @@
 
 
 - name: check go
-  
-
-
 
 
