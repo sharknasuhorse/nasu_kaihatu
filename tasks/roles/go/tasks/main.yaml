@@ -5,7 +5,7 @@
 
 - name: make GOPATH directory
   file: /usr/local/gocode/{{ item }}
-  state: directory
+  #state: directory
   with_items:
       - src
       - bin
@@ -19,6 +19,6 @@
     source ~/.bash_profile
 
 
-- name: check go
+#- name: check go
 
 
