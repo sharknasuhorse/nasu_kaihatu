@@ -10,8 +10,8 @@
 
 
 - name: add vimrc
-  file: ~/.vim/
-  template: src="templates/vimrc" dest="~/.vim/" owner=vagrant group=vagrant
+  file: path=/home/vagrant/.vim state=directory
+- template: src=../templates/vimrc dest=/home/vagrant/.vim
 
 
 - name: Install libselinux-python

@@ -13,7 +13,7 @@ set backspace=2		" more powerful backspacing
 "chpass"
 "au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
-colorscheme molokai
+"colorscheme molokai
 syntax on
 
 
