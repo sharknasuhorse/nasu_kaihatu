@@ -11,29 +11,13 @@
 
 
 - name: bash-completion
-  yum: name="bash-completion" state=present
-- command: wget https://github.com/terralinux/systemd/raw/master/src/systemctl-bash-completion.sh -O /etc/bash_completion.d/systemctl-bash-completion.sh
+  template: src=../templates/systemctl-bash-completion.sh dest=/etc/bash_completion.d/
 
 - name: add vimrc
   file: path=/home/vagrant/.vim state=directory
 - template: src=../templates/vimrc dest=/home/vagrant/.vim
 
 
-#- name: Install libselinux-python
-#  yum: name="libselinux-python" state=present
-
-#- name: Permissive selinux
-#  selinux: state=disable
-
-#- name: Reboot
-#  shell: "sleep 2 && reboot"
-#  async: 1
-#  poll: 0
-
-
-#- name: waiting system
-#  local_action: wait_for host={{ansible_ssh_host}} port={{ansible_ssh_port}} delay=30
-#  become: false
 - name: Get SELinux Mode
   shell: getenforce
   register: selinux_status
