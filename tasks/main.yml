@@ -8,7 +8,7 @@
     - main
     - apache2
     - go
-#    - mariadb-server
+    - mariadb
 #    - php
 #    - rails
 #    - java

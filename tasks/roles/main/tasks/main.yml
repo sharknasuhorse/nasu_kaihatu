@@ -27,13 +27,13 @@
 
 - name: make directory
   file:
-    path: "{{ lookup('env', 'HOME') }}"/.vim
+    path: "{{ lookup('env', 'HOME') }}/.vim"
     state: directory
 
 - name: add vim rc
   copy:
     src: vimrc
-    dest: "{{ lookup('env', 'HOME') }}"/.vim
+    dest: "{{ lookup('env', 'HOME') }}/.vim"
 
 
 - name: Get SELinux Mode

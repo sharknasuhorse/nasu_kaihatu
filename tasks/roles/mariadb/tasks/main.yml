@@ -1,0 +1,23 @@
+---
+- name: set mariadb.repo
+  template: src=mariadb.repo.j2 dest=/etc/yum.repos.d/mariadb.repo
+
+- name: install mariadb
+  yum:
+  name: {{item}}
+    state: installed
+    with_items:
+    - MariaDB-server
+    - MariaDB-client
+
+# MySQL関連モジュールを使うためにインストール
+- name: install MySQL-python
+  yum:
+    name: MySQL-python
+    state: installed
+
+- name: run mysql-server
+  service:
+  name: mysql
+  state: running
+  enabled: yes
