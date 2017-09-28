@@ -34,7 +34,11 @@
   copy:
     src: vimrc
     dest: "{{ lookup('env', 'HOME') }}/.vim"
-
+- name: add molo
+  copy:
+    direcotry: yes
+    src: color
+    dest: "{{ lookup('env', 'HOME') }}/.vim/color"
 
 - name: Get SELinux Mode
   shell: getenforce
