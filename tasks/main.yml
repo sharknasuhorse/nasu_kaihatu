@@ -8,9 +8,15 @@
     - main
     - apache2
     - go
-#    - mariadb-server
+    - mariadb
 #    - php
 #    - rails
+<<<<<<< HEAD
 #    - pwn
 #    - cakephp
 #    - 
+=======
+#    - java
+#    - miya
+#    - cake
+>>>>>>> ceff7234e4c7f3f15307905e2735f01f5edbc8e7

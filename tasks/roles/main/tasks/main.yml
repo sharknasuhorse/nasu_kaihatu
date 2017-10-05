@@ -1,36 +1,44 @@
 ---
 
 - name : yum update
-  yum : 
-    name: "*" 
+  yum :
+    name: "*"
     state: latest
 
 - name : install epel
-  yum : 
-    name: "epel-release" 
+  yum :
+    name: "epel-release"
     state: present
 
 - name: install wget
   yum:
-    name: "wget" 
+    name: "wget"
     state: present
 
+- name: install bash-completion
+  yum:
+    name: "bash-completion"
+    state: present
 
 - name: bash-completion
-  copy: 
+  copy:
     src: systemctl-bash-completion.sh
     dest: /etc/bash_completion.d
 
 - name: make directory
-  file: 
-    path: /home/vagrant/.vim 
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.vim"
     state: directory
 
-- name: add vim rc 
-  copy: 
+- name: add vim rc
+  copy:
     src: vimrc
-    dest: /home/vagrant/.vim
-
+    dest: "{{ lookup('env', 'HOME') }}/.vim"
+- name: add molo
+  copy:
+    direcotry: yes
+    src: color
+    dest: "{{ lookup('env', 'HOME') }}/.vim/color"
 
 - name: Get SELinux Mode
   shell: getenforce
@@ -39,12 +47,6 @@
 
 - name: debug
   debug: var=selinux_status
-
-
-
-
-
-
 
 - name: Install libselinux-python
   yum: name=libselinux-python state=present

@@ -1,12 +1,12 @@
 ---
 
 - name: install go
-  yum : 
+  yum :
     name: "golang"
     state: latest
 
 - name: make GOPATH directory
-  file: 
+  file:
     path: /usr/local/gocode/{{ item }}
     state: directory
   with_items:
