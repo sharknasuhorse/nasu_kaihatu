@@ -12,8 +12,12 @@
 
 - name: install wget
   yum:
-    name: "wget"
+    name: "{{ item }}"
     state: present
+    with_items:
+      - wget
+      - net-tools
+      - bind-utils
 
 - name: install bash-completion
   yum:
@@ -21,9 +25,7 @@
     state: present
 
 - name: bash-completion
-  copy:
-    src: systemctl-bash-completion.sh
-    dest: /etc/bash_completion.d
+  command: wget https://github.com/terralinux/systemd/raw/master/src/systemctl-bash-completion.sh -O /etc/bash_completion.d/systemctl-bash-completion.sh
 
 - name: make directory
   file:
@@ -34,11 +36,12 @@
   copy:
     src: vimrc
     dest: "{{ lookup('env', 'HOME') }}/.vim"
+
 - name: add molo
   copy:
     direcotry: yes
     src: color
-    dest: "{{ lookup('env', 'HOME') }}/.vim/color"
+    dest: "{{ lookup('env', 'HOME') }}/.vim/"
 
 - name: Get SELinux Mode
   shell: getenforce
